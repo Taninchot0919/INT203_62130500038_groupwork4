@@ -6,36 +6,34 @@ const app = {
           url: "images/pineapple.jpg",
           title: "Pineapple",
           description: "This is the picture of Pineapple",
-          liked: false,
-          bigPicture: false
+          liked: true,
         },
         {
           url: "images/lion.jpg",
           title: "Lion",
           description: "This is the picture of Lion",
           liked: false,
-          bigPicture: false
         },
         {
           url: "images/surface.jpg",
           title: "Microsoft Surface",
           description: "This is the picture of Microsoft Surface",
           liked: false,
-          bigPicture: false
         },
         {
           url: "images/bangkok-landscape.jpg",
           title: "Bangkok",
           description: "This is the picture of Bangkok",
-          liked: false,
-          bigPicture: false
+          liked: true,
         }
       ],
-      searchbutton: false,
       form: {
         searchText: '',
       },
-      textSearch:'',
+      searchbutton: false,
+      isBigPicture: false,
+      textSearch: '',
+      bigPictureSrc: '',
     };
   },
   methods: {
@@ -49,11 +47,11 @@ const app = {
       this.textSearch = '';
     },
     bigPic(index) {
-      console.log(this.photos[index])
-      this.photos[index].bigPicture = !this.photos[index].bigPicture
-      console.log("After Click : " + this.photos[index].bigPicture)
+      this.bigPictureSrc = this.photos[index].url
+      console.log(this.bigPictureSrc)
+      this.isBigPicture = true
     },
-    search(){
+    search() {
       this.textSearch = this.form.searchText
     }
 
